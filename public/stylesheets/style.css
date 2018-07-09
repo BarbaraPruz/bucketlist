@@ -1,0 +1,13 @@
+body {
+    margin: 20px;
+    font-family: aria, sans-serif;
+
+}
+  
+.heading {
+  text-align: left;
+  padding: 0 10px;
+  border-radius: 10px;
+  background: #003e3f;
+  color: #dcae10;
+}

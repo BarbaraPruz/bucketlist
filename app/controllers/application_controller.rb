@@ -9,9 +9,9 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "fbucket"
   end
 
- # get '/' do
- #   erb :index
- # end
+  get '/' do
+    erb :index
+  end
 
 
 end
