@@ -5,6 +5,6 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
-#use BucketController
+use BucketController
 
 run ApplicationController

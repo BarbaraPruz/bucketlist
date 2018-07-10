@@ -11,12 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180709214746) do
+ActiveRecord::Schema.define(version: 20180710202239) do
 
   create_table "buckets", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
     t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "bucket_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
