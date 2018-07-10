@@ -23,6 +23,21 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  get '/signup' do
+    redirect '/user_home' if logged_in?
+    erb :"/signup"
+  end
+  post '/user/new' do
+    # fields required in erb but additional check for rspec (or if someone bypasses the form)
+    if params[:name].length == 0 || params[:email].length == 0 || params[:password].length == 0
+      redirect '/signup'
+    end
+    user = User.new(:name => params[:name], :email => params[:email], :password => params[:password])
+    redirect "/failure" if !user.save
+    session[:user_id] = user.id
+    redirect '/user_home'    
+  end
+
   get '/user_home' do
     redirect "/login" if !logged_in?
     @user = current_user
