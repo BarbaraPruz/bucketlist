@@ -1,13 +1,25 @@
-body {
-    margin: 20px;
-    font-family: aria, sans-serif;
 
+body {
+  margin: 20px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: normal;
 }
-  
+
 .heading {
-  text-align: left;
-  padding: 0 10px;
-  border-radius: 10px;
-  background: #003e3f;
-  color: #dcae10;
+text-align: left;
+border-bottom: 5px solid #910a91;
+color: #910a91;
+font: 21px 'Source Code Pro', monospace, sans-serif;
+font-weight: bold; 
+}
+.heading h1 {
+margin-bottom: 1px;
+}
+
+.login-form {
+padding: 10px;
+background: #f2f2f2;
+margin: auto;
+width: 30%;
+border-radius: 10px;
 }
