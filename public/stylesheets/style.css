@@ -3,8 +3,9 @@ body {
   margin: 20px;
   font-family: 'Work Sans', sans-serif;
   font-weight: normal;
+  padding-top: 75px;
 }
-
+/*
 .heading {
 text-align: left;
 border-bottom: 5px solid #910a91;
@@ -14,6 +15,11 @@ font-weight: bold;
 }
 .heading h1 {
 margin-bottom: 1px;
+}*/
+.navbar-brand {
+  color: #910a91;
+  font: 21px 'Source Code Pro', monospace, sans-serif;
+  font-weight: bold; 
 }
 
 .login-form {

@@ -2,20 +2,50 @@
 <html>
   <head>
     <title>BucketList</title>
-    <!-- External stylesheets, fonts, etc.-->
+    <!-- External stylesheets, fonts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+    <!-- support for bootstrap navigation -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Site specific stylesheets, etc. -->
     <link href="/stylesheets/style.css" rel="stylesheet">
   </head>
+
   <body>
+    <nav class="navbar navbar-expand-xl fixed-top">
+      <a class="navbar-brand" href="/">BucketList</a>
+      <button class="navbar-toggler" id="toggler" type="button" data-toggle="collapse" data-target="#navbar-main" aria-controls="navbarMain"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbar-main">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a id="home" class="nav-link" href="/user_home">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/ideas" id="ideasDropDown" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">Bucket Ideas</a>
+            <div class="dropdown-menu" aria-labelledby="ideasDropDown">
+              <a class="dropdown-item" href="???">Sites</a>
+              <a class="dropdown-item" href="???">Browse All</a>                                            
+            </div>
+          </li>
+          <li class="nav-item">
+            <a id="home" class="nav-link" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     <div class="container">
-      <div class="heading">
+  <!--    <div class="heading">
         <h1>BucketList</h1>
-      </div>
+      </div>-->
       <%= yield %>
     </div>
 
