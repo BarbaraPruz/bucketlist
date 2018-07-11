@@ -1,0 +1,16 @@
+<div class="bucket-form">
+  <h2>Edit Bucket</h3>
+	<form action="/buckets/<%=@bucket.id%>" method="POST">
+		<input id="hidden" type="hidden" name="_method" value="patch">
+		<label for="name">Name:</label><input type="text" name="name" value="<%=@bucket.name%>" required><br>
+    <label for="description">Description:</label><textarea id="description" name="description"><%=@bucket.description%></textarea><br>
+    <ul class="list-unstyled">
+      <% @bucket.goals.each do |goal| %>
+        <li><%=goal.title%> - <%=goal.description%></li>
+      <% end %>
+    </ul>
+    <input class="btn btn-primary" type="submit" id="submit" value="Update Bucket">
+    <a class="btn btn-secondary" href="/user_home">Cancel</a>    
+	</form>
+</div>
+

@@ -1,11 +1,12 @@
-<h2 >Welcome, <%=@user.name%></h2>
-<p><a href="/buckets/new" class="btn btn-primary">Create Bucket</a></p>
+<h3 class="alignleft">Hi <%=@user.name%>!</h2>
+<a class="alignright btn btn-secondary"href="/buckets/new">Create Bucket</a>
 
-<ul class="list-unstyled">
+<ul class="clear-fix list-unstyled ">
     <% @buckets.each do |bucket| %>
-        <li>
-            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#bucket<%=bucket.id%>"><%=bucket.name%></button>
-            <div id="bucket<%=bucket.id%>" class="collapse">
+        <li class="clear-fix">
+            <button type="button" class="btn btn-bucket alignleft" data-toggle="collapse" data-target="#bucket<%=bucket.id%>">Bucket: <%=bucket.name%></button>
+            <a class="btn alignright" href="/buckets/<%=bucket.id%>/edit">Edit</a>
+            <div id="bucket<%=bucket.id%>" class="collapse clear-fix"">
                 <p><em><%=bucket.description%></em></p>
                 <ul class="list-unstyled">
                     <% bucket.goals.each do |goal| %>

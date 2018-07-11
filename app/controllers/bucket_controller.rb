@@ -24,4 +24,20 @@ class BucketController < ApplicationController
         erb :"/buckets/show_bucket"
     end
     
+    get '/buckets/:id/edit' do
+        redirect '/' if !logged_in?
+        @bucket = Bucket.find(params[:id])
+        redirect '/fauilure' if @bucket.user_id != session[:user_id]
+        erb :"/buckets/edit_bucket"
+    end
+    patch '/buckets/:id' do
+        redirect '/failure' if !logged_in?
+        redirect "/buckets/#{params[:id]}/edit" if params[:name].length == 0
+        bucket = Bucket.find(params[:id])
+        redirect 'failure' if bucket.user_id != current_user.id
+        bucket.name = params[:name]
+        bucket.description = params[:description]
+        bucket.save
+        redirect '/user_home'
+    end
 end

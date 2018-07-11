@@ -5,6 +5,10 @@ body {
   font-weight: normal;
   padding-top: 75px;
 }
+
+/*
+ * Navigation bar/header
+ */
 .navbar {
   border-bottom: #6b056b 3px solid; 
 }
@@ -19,10 +23,33 @@ body {
 .navbar a:hover {
   color: #4e1797;
 }
+
+/*
+ * General alignment classes
+ */
+ .alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
+.clear-fix {
+  clear: both;
+}
+
+/*
+ * User form - login, signup
+ */
 .user-form {
 padding: 10px;
 background: #f2f2f2;
 margin: auto;
 width: 30%;
 border-radius: 10px;
+}
+
+.btn-bucket {
+  background: yellow;
+  color: black;
+  margin-bottom: 5px;
 }
