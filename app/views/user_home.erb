@@ -1,8 +1,22 @@
 <h2 >Welcome, <%=@user.name%></h2>
-<a class="user-button"href="/logout">Logout</a>
-<p><a href="/buckets/new" class="btn btn-primary">Create Bucket</a>
-<ul>
+<p><a href="/buckets/new" class="btn btn-primary">Create Bucket</a></p>
+
+<ul class="list-unstyled">
     <% @buckets.each do |bucket| %>
-        <li><a href="/buckets/<%=bucket.id%>"><%=bucket.name%></a></li>
+        <li>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#bucket<%=bucket.id%>"><%=bucket.name%></button>
+            <div id="bucket<%=bucket.id%>" class="collapse">
+                <p><em><%=bucket.description%></em></p>
+                <ul class="list-unstyled">
+                    <% bucket.goals.each do |goal| %>
+                        <li>
+                            <h4><%=goal.title%></h4>
+                            <p><%=goal.description%></p>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+        </li>
     <% end %>
 </ul>
+
