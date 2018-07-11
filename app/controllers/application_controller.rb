@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    user = User.find_by(:email => params[:email])
+    user = User.find_by(:email => params[:email].downcase)
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect "/user_home"
@@ -32,7 +32,7 @@ class ApplicationController < Sinatra::Base
     if params[:name].length == 0 || params[:email].length == 0 || params[:password].length == 0
       redirect '/signup'
     end
-    user = User.new(:name => params[:name], :email => params[:email], :password => params[:password])
+    user = User.new(:name => params[:name], :email => params[:email].downcase, :password => params[:password])
     redirect "/failure" if !user.save
     session[:user_id] = user.id
     redirect '/user_home'    
