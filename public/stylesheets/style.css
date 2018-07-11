@@ -1,28 +1,25 @@
 
 body {
   margin: 20px;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: normal;
   padding-top: 75px;
 }
-/*
-.heading {
-text-align: left;
-border-bottom: 5px solid #910a91;
-color: #910a91;
-font: 21px 'Source Code Pro', monospace, sans-serif;
-font-weight: bold; 
+.navbar {
+  border-bottom: #6b056b 3px solid; 
 }
-.heading h1 {
-margin-bottom: 1px;
-}*/
 .navbar-brand {
   color: #910a91;
-  font: 21px 'Source Code Pro', monospace, sans-serif;
-  font-weight: bold; 
+  font: 36px 'Righteous', monospace, sans-serif;
+  padding-bottom: 2px;
 }
-
-.login-form {
+.navbar a {
+  color: #6b056b;
+}
+.navbar a:hover {
+  color: #4e1797;
+}
+.user-form {
 padding: 10px;
 background: #f2f2f2;
 margin: auto;

@@ -39,7 +39,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/user_home' do
-    redirect "/login" if !logged_in?
+    redirect "/" if !logged_in?
     @user = current_user
     @buckets = Bucket.all.find_all { |bucket| bucket.user_id == current_user.id}
     erb :"/user_home"
