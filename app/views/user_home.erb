@@ -1,6 +1,6 @@
 <h2 >Welcome, <%=@user.name%></h2>
 <a class="user-button"href="/logout">Logout</a>
-
+<p><a href="/buckets/new" class="btn btn-primary">Create Bucket</a>
 <ul>
     <% @buckets.each do |bucket| %>
         <li><a href="/buckets/<%=bucket.id%>"><%=bucket.name%></a></li>
