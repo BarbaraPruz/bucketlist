@@ -26,7 +26,7 @@ class BucketController < ApplicationController
     get '/buckets/:id/edit' do
         redirect '/' if !logged_in?
         @bucket = Bucket.find(params[:id])
-        redirect '/fauilure' if @bucket.user_id != session[:user_id]
+        redirect '/failure' if @bucket.user_id != current_user.id
         erb :"/buckets/edit_bucket"
     end
     patch '/buckets/:id' do
@@ -54,5 +54,23 @@ class BucketController < ApplicationController
         redirect "/failure" if !bucket.save
         redirect "user_home"
     end
-
+    get '/buckets/:id/:goal_id/edit' do
+        redirect '/' if !logged_in?
+        @bucket = Bucket.find(params[:id])
+        @goal = Goal.find(params[:goal_id])
+        redirect '/failure' if @bucket.user_id !=current_user.id
+        redirect '/failure' if @goal.bucket_id != @bucket.id
+        erb :"/buckets/edit_goal"
+    end
+    patch '/buckets/:id/:goal_id' do
+        redirect '/failure' if !logged_in?
+        redirect "/buckets/#{params[:id]}/#{params[:goal_id]}/edit" if params[:goal][:title].length == 0
+        bucket = Bucket.find(params[:id])
+        goal = Goal.find(params[:goal_id])
+        redirect 'failure' if bucket.user_id != current_user.id
+        redirect 'failure' if goal.bucket_id != bucket.id
+        goal.update(params[:goal])
+        goal.save
+        redirect '/user_home'
+    end
 end

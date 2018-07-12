@@ -1,0 +1,9 @@
+<h2><%=@bucket.name%> - Edit Goal</h3>
+<form action="/buckets/<%=@bucket.id%>/<%=@goal.id%>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <label for="title">Title:</label><input type="text" name="goal[title]" value="<%=@goal.title%>" required><br>
+    <label for="description">Description:</label><textarea id="description" name="goal[description]"><%=@goal.description%></textarea><br>
+<input class="btn btn-primary" type="submit" id="submit" value="Update Goal">
+<a class="btn btn-secondary" href="/buckets/<%=@bucket.id%>/edit">Cancel</a>    
+</form>
+</div>
