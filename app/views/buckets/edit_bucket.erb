@@ -2,18 +2,18 @@
   <h2>Edit Bucket</h3>
 	<form action="/buckets/<%=@bucket.id%>" method="POST">
 		<input id="hidden" type="hidden" name="_method" value="patch">
-		<label for="name">Name:</label><input type="text" name="name" value="<%=@bucket.name%>" required><br>
-    <label for="description">Description:</label><textarea id="description" name="description"><%=@bucket.description%></textarea><br>
-    <ul class="list-unstyled">
+		<label for="name">Name:</label><input type="text" name="bucket[name]" value="<%=@bucket.name%>" required><br>
+    <label for="description">Description:</label><textarea id="description" name="bucket[description]"><%=@bucket.description%></textarea><br>
+ <!--  <ul class="list-unstyled">
       <% @bucket.goals.each do |goal| %>
         <li>
         <label for="goal<%=goal.title%>">Goal:</label>
         <input type="text" id="goal<%=goal.title%>" name="goals[][title]" value="<%=goal.title%>" required><br>
         <label for="description<%=goal.title%>">Description:</label>
-          <textarea id="description<%=goal.title%>" name="goals[][description]"><%=goal.description%></textarea>
+          <textarea id="description<%=goal.title%>" name="bucket[goals[][description]"><%=goal.description%></textarea>
         </li>
       <% end %>
-    </ul>
+    </ul>-->
     <input class="btn btn-primary" type="submit" id="submit" value="Update Bucket">
     <a class="btn btn-secondary" href="/user_home">Cancel</a>    
 	</form>

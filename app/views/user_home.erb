@@ -4,15 +4,18 @@
 <ul class="clear-fix list-unstyled ">
     <% @buckets.each do |bucket| %>
         <li class="clear-fix">
-            <button type="button" class="btn btn-bucket alignleft" data-toggle="collapse" data-target="#bucket<%=bucket.id%>">Bucket: <%=bucket.name%></button>
-            <a class="btn alignright" href="/buckets/<%=bucket.id%>/edit">Edit</a>
-            <div id="bucket<%=bucket.id%>" class="collapse clear-fix"">
-                <p><em><%=bucket.description%></em></p>
-                <ul class="list-unstyled">
+            <button type="button" class="btn bucket-btn" data-toggle="collapse" data-target="#bucket<%=bucket.id%>">Bucket: <%=bucket.name%></button>
+            <div id="bucket<%=bucket.id%>" class="bucket-contents collapse">
+                <p class="alignleft"><em><%=bucket.description%></em></p>
+                <a class="btn alignright" href="/buckets/<%=bucket.id%>/edit">Edit</a>
+                <h4 class="clear-fix alignleft">Goals</h4>
+                <a class="btn alignright" href="/buckets/<%=bucket.id%>/goals/new">Add Goal</a>
+                <ul class="list-unstyled clear-fix">
                     <% bucket.goals.each do |goal| %>
-                        <li>
+                        <li class="clear-fix">
                             <h4><%=goal.title%></h4>
-                            <p><%=goal.description%></p>
+                            <p class="alignleft"><%=goal.description%></p>
+                            <a class="btn alignright" href="/buckets/<%=bucket.id%>/edit">Edit</a>
                         </li>
                     <% end %>
                 </ul>

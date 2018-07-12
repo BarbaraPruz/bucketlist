@@ -31,14 +31,28 @@ class BucketController < ApplicationController
     end
     patch '/buckets/:id' do
         redirect '/failure' if !logged_in?
-        redirect "/buckets/#{params[:id]}/edit" if params[:name].length == 0
+        redirect "/buckets/#{params[:id]}/edit" if params[:bucket][:name].length == 0
         bucket = Bucket.find(params[:id])
         redirect 'failure' if bucket.user_id != current_user.id
-        bucket.name = params[:name]
-        bucket.description = params[:description]
-        bucket.goals.clear
-        params[:goals].each { |g| bucket.goals << Goal.new(:title=>g["title"], :description=>g["description"])}
+        bucket.update(params[:bucket])
         bucket.save
         redirect '/user_home'
     end
+
+    get '/buckets/:id/goals/new' do
+        redirect '/failure' if !logged_in?
+        @bucket = Bucket.find(params[:id])
+        redirect "/user_home" if @bucket.user_id != current_user.id
+        erb :"/buckets/create_goal"
+    end
+    post '/buckets/:id/goal' do
+        redirect '/failure' if !logged_in?
+        bucket = Bucket.find(params[:id])
+        redirect "/user_home" if bucket.user_id != current_user.id
+        goal = Goal.new(:title=>params[:title], :description=>params[:description])
+        bucket.goals << goal
+        redirect "/failure" if !bucket.save
+        redirect "user_home"
+    end
+
 end

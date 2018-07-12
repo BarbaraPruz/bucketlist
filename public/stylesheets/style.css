@@ -48,8 +48,11 @@ width: 30%;
 border-radius: 10px;
 }
 
-.btn-bucket {
+.bucket-btn {
   background: yellow;
   color: black;
   margin-bottom: 5px;
+}
+.bucket-contents {
+  padding-left: 20px;
 }
