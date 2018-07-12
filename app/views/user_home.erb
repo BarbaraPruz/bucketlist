@@ -8,6 +8,10 @@
             <div id="bucket<%=bucket.id%>" class="bucket-contents collapse">
                 <p class="alignleft"><em><%=bucket.description%></em></p>
                 <a class="btn alignright" href="/buckets/<%=bucket.id%>/edit">Edit</a>
+                <form class="alignright" method="post" action="/buckets/<%=bucket.id%>/delete">
+                    <input id="hidden" type="hidden" name="_method" value="delete">
+                    <input class="btn btn-secondary" type="submit"  value="Delete">
+                </form>                
                 <h4 class="clear-fix alignleft">Goals</h4>
                 <a class="btn alignright" href="/buckets/<%=bucket.id%>/goals/new">Add Goal</a>
                 <ul class="list-unstyled clear-fix">
