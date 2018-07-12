@@ -73,4 +73,15 @@ class BucketController < ApplicationController
         goal.save
         redirect '/user_home'
     end
+
+    delete '/buckets/:id/:goal_id/delete' do
+        redirect '/failure' if !logged_in?
+        bucket = Bucket.find(params[:id])
+        goal = Goal.find(params[:goal_id])
+        redirect 'failure' if bucket.user_id != current_user.id
+        redirect 'failure' if goal.bucket_id != bucket.id
+        Goal.delete(params[:goal_id])
+        redirect '/user_home'
+    end   
+
 end

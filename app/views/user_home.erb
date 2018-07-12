@@ -16,6 +16,10 @@
                             <h4><%=goal.title%></h4>
                             <p class="alignleft"><%=goal.description%></p>
                             <a class="btn alignright" href="/buckets/<%=bucket.id%>/<%=goal.id%>/edit">Edit</a>
+                            <form class="alignright" method="post" action="/buckets/<%=bucket.id%>/<%=goal.id%>/delete">
+                                <input id="hidden" type="hidden" name="_method" value="delete">
+                                <input class="btn btn-secondary" type="submit"  value="Delete">
+                            </form>
                         </li>
                     <% end %>
                 </ul>
