@@ -1,0 +1,9 @@
+<h3>Search Ideas</h3>
+<form action="/ideas/search" method="POST" id="search_form">
+    <%@categories.each do |category|%>
+        <input type="checkbox" name="category_ids[]" id="<%= category.id%>" value="<%=category.id%>">
+            <%=category.name%>
+        </input>
+    <%end%>
+    <button class="btn btn-primary" type="submit"form="search_form" value="Submit">Search</button>
+</form>
