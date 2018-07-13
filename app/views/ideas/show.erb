@@ -1,0 +1,15 @@
+<ul class="list-unstyled ">
+    <% @ideas.each do |idea| %>
+        <li >
+            <h4><%=idea.name%></h4>
+            <p><em><%=idea.description%></em></p>
+            <% if !idea.url.nil? %>
+                <h5><a href="<%=idea.url%>" target=_blank><%=idea.url%></a></h5>
+            <% end %>
+            <% if !idea.image.nil? %>
+                <img src="<%=idea.image%>" alt="<%=idea.name%>" class="img-thumbnail">
+            <% end %>
+        </li>
+    <% end %>
+</ul>
+

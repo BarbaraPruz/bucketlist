@@ -6,5 +6,6 @@ end
 
 use Rack::MethodOverride
 use BucketController
+use IdeaController
 
 run ApplicationController
