@@ -9,9 +9,9 @@ class GoalController < ApplicationController
         redirect "/user_home" if @bucket.user_id != current_user.id
         erb :"/goals/create_goal"
     end
-    post '/buckets/:id/goals' do
+    post '/goals' do
         redirect '/failure' if !logged_in?
-        bucket = Bucket.find(params[:id])
+        bucket = Bucket.find(params[:bucket_id])
         redirect "/user_home" if bucket.user_id != current_user.id
         goal = Goal.new(:title=>params[:title], :description=>params[:description])
         bucket.goals << goal
