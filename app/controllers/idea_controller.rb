@@ -22,4 +22,10 @@ class IdeaController < ApplicationController
         @ideas = Idea.where(category_id: [1,3,5])
         redirect :"/ideas"  # temporary
     end  
+
+    get '/ideas/:id/newgoal' do
+        # To Do
+        redirect :"/user_home" #temporary
+    end
+
 end
