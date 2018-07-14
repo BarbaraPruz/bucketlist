@@ -1,6 +1,37 @@
-<h3 class="alignleft">Hi <%=@user.name%>!</h2>
-<a class="alignright btn btn-secondary"href="/buckets/new">Create Bucket</a>
+<h4 class="alignleft">Hi <%=@user.name%>!</h4>
+<a class="alignright btn btn-dark" href="/buckets/new">Create Bucket</a>
 
+<% @buckets.each do |bucket| %>
+    <div class="bucket-div clear-fix">
+        <button type="button" class="btn bucket-btn clear-fix" data-toggle="collapse" data-target="#bucket<%=bucket.id%>">Bucket: <%=bucket.name%></button>
+        <div id="bucket<%=bucket.id%>" class="bucket-contents collapse">
+            <p class="alignleft"><em><%=bucket.description%></em></p>
+            <a class="btn alignright" href="/buckets/<%=bucket.id%>/edit">Edit</a>
+            <form class="alignright" method="post" action="/buckets/<%=bucket.id%>/delete">
+                <input id="hidden" type="hidden" name="_method" value="delete">
+                <input class="btn btn-secondary" type="submit"  value="Delete">
+            </form>                
+            <h4 class="clear-fix alignleft">Goals</h4>
+            <a class="btn alignright" href="/goals/new/<%=bucket.id%>">Add Goal</a>
+            <ul class="list-unstyled clear-fix">
+                <% bucket.goals.each do |goal| %>
+                    <li class="clear-fix">
+                        <h4><%=goal.title%></h4>
+                        <p class="alignleft"><%=goal.description%></p>
+                        <a class="btn alignright" href="/goals/<%=goal.id%>/<%=bucket.id%>/edit">Edit</a>
+                        <form class="alignright" method="post" action="/goals/<%=goal.id%>/<%=bucket.id%>/delete">
+                            <input id="hidden" type="hidden" name="_method" value="delete">
+                            <input class="btn btn-secondary" type="submit"  value="Delete">
+                        </form>
+                    </li>
+                <% end %>
+            </ul>
+        </div> <!-- end of bucket contents-->
+    </div> <!-- end of bucket -->
+<% end %>
+
+
+<!--
 <ul class="clear-fix list-unstyled ">
     <% @buckets.each do |bucket| %>
         <li class="clear-fix">
@@ -32,3 +63,5 @@
     <% end %>
 </ul>
 
+
+-->
