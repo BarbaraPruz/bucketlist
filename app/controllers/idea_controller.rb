@@ -4,13 +4,13 @@ require 'pry'
 class IdeaController < ApplicationController
 
     get '/ideas' do
-        redirect "/login" if !logged_in?
+        redirect "/" if !logged_in?
         @ideas = Idea.all.sort { |a,b| a.name <=> b.name }
         erb :"/ideas/show"
     end  
 
     get '/ideas/search' do
-        redirect "/login" if !logged_in?
+        redirect "/" if !logged_in?
         @categories = Category.all
         erb :"/ideas/search"
     end  

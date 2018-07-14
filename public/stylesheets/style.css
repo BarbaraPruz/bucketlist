@@ -6,6 +6,15 @@ body {
   padding-top: 75px;
 }
 
+footer {
+  margin-top: 5em;
+  font-size: 65%;
+  text-align: center;
+}
+
+button img {
+  padding-left: 10px;
+}
 /*
  * Navigation bar/header
  */
@@ -44,7 +53,7 @@ body {
 padding: 10px;
 background: #f2f2f2;
 margin: auto;
-width: 30%;
+width: 40%;
 border-radius: 10px;
 }
 
