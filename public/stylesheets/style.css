@@ -12,12 +12,6 @@ footer {
   text-align: center;
 }
 
-button img {
-  padding-left: 10px;
-}
-.description-input {
-  min-width: 100%;
-}
 /*
  * Navigation bar/header
  */
@@ -50,6 +44,14 @@ button img {
 }
 
 /*
+ * general button classes
+ */
+
+button img {
+  padding-left: 10px;
+}
+
+/*
  * User form - login, signup
  */
 .user-form {
@@ -60,6 +62,9 @@ width: 40%;
 border-radius: 10px;
 }
 
+/*
+ * bucket form (bucket and goal)
+ */
 .bucket-form {
   padding: 10px;
   background: #f2f2f2;
@@ -68,11 +73,46 @@ border-radius: 10px;
   border-radius: 10px;
 }
 
+.description-input {
+  min-width: 100%;
+}
+
+/*
+ * user home page classes
+ */
+ .user-heading {
+   margin-bottom: 30px;
+ }
+.user-buckets {
+  width: 80%;
+  margin: auto;
+}
 .bucket-btn {
   border: 1px solid #910a91;
-  width: 80%;
+  width: 100%;
   margin-top: 10px;
+  font-weight: bold;
 }
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
 .bucket-contents {
-  padding-left: 20px;
+  padding: 10px;
+  text-align: center;
+  background: #e4eae3;
+}
+.bucket-control {
+  background: #e4eae3;
+  padding: 10px;
+}
+.bucket-control button {
+  margin-right: 10px;
+}
+.bucket-goals {
+  background: #e4eae3;
+  margin-top: 5px;
+  padding: 20px;
+  text-align: left;
 }
