@@ -3,14 +3,17 @@
 
 <% @buckets.each do |bucket| %>
     <div class="bucket-div clear-fix">
-        <button type="button" class="btn bucket-btn clear-fix" data-toggle="collapse" data-target="#bucket<%=bucket.id%>">Bucket: <%=bucket.name%></button>
+        <button type="button" class="btn bucket-btn clear-fix" data-toggle="collapse" data-target="#bucket<%=bucket.id%>">
+            <%=bucket.name%><img src="/images/bucket-24.png">
+        </button>
+ 
         <div id="bucket<%=bucket.id%>" class="bucket-contents collapse">
-            <p class="alignleft"><em><%=bucket.description%></em></p>
+            <p class="alignleft"><em><%=bucket.description%></em></p>   
             <a class="btn alignright" href="/buckets/<%=bucket.id%>/edit">Edit</a>
             <form class="alignright" method="post" action="/buckets/<%=bucket.id%>/delete">
                 <input id="hidden" type="hidden" name="_method" value="delete">
                 <input class="btn btn-secondary" type="submit"  value="Delete">
-            </form>                
+            </form>            
             <h4 class="clear-fix alignleft">Goals</h4>
             <a class="btn alignright" href="/goals/new/<%=bucket.id%>">Add Goal</a>
             <ul class="list-unstyled clear-fix">
