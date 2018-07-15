@@ -18,8 +18,8 @@
                     <li class="clear-fix">
                         <h4><%=goal.title%></h4>
                         <p class="alignleft"><%=goal.description%></p>
-                        <a class="btn alignright" href="/goals/<%=goal.id%>/<%=bucket.id%>/edit">Edit</a>
-                        <form class="alignright" method="post" action="/goals/<%=goal.id%>/<%=bucket.id%>/delete">
+                        <a class="btn alignright" href="/goals/<%=goal.id%>/edit">Edit</a>
+                        <form class="alignright" method="post" action="/goals/<%=goal.id%>/delete">
                             <input id="hidden" type="hidden" name="_method" value="delete">
                             <input class="btn btn-secondary" type="submit"  value="Delete">
                         </form>
