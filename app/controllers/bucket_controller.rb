@@ -14,7 +14,7 @@ class BucketController < ApplicationController
         bucket = Bucket.create(:name => params[:name], :description => params[:description])
         user.buckets << bucket
         user.save
-        redirect "/user_home"       
+        redirect "/user-home"       
     end
 
     get '/buckets/:id' do
@@ -37,7 +37,7 @@ class BucketController < ApplicationController
         redirect 'failure' if bucket.user_id != current_user.id
         bucket.update(params[:bucket])
         bucket.save
-        redirect '/user_home'
+        redirect '/user-home'
     end
 
     delete '/buckets/:id/delete' do
@@ -46,7 +46,7 @@ class BucketController < ApplicationController
         redirect 'failure' if bucket.user_id != current_user.id
         bucket.goals.each { |goal| Goal.delete(goal.id)}
         Bucket.delete(params[:id])
-        redirect '/user_home'
+        redirect '/user-home'
     end  
 
 end

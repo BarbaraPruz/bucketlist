@@ -25,7 +25,7 @@ class IdeaController < ApplicationController
 
     get '/ideas/:id/newgoal' do
         # To Do
-        redirect :"/user_home" #temporary
+        redirect :"/user-home" #temporary
     end
 
 end

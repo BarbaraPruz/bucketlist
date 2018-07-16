@@ -1,9 +1,11 @@
-<ul class="list-unstyled ">
+<ul class="list-unstyled">
     <% @ideas.each do |idea| %>
-        <li >
-            <h4 class="alignleft"><%=idea.name%></h4>
-            <a class="btn btn-secondary alignright" href="/ideas/<%=idea.id"/newgoal">Create Goal</a>
-            <p><em><%=idea.description%></em></p>
+        <li class="clear-fix">
+            <div class="alignedsection">
+                <h4 class="alignleft"><%=idea.name%></h4>
+                <a class="btn btn-secondary alignright" href="/ideas/<%=idea.id%>/newgoal">Create Goal</a>
+            </div>
+            <p class="clear-fix"><em><%=idea.description%></em></p>
             <% if !idea.url.nil? %>
                 <h5><a href="<%=idea.url%>" target=_blank><%=idea.url%></a></h5>
             <% end %>

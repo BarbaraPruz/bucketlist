@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    redirect '/user_home' if logged_in?
+    redirect '/user-home' if logged_in?
     erb :index
   end
 
@@ -18,14 +18,14 @@ class ApplicationController < Sinatra::Base
     user = User.find_by(:email => params[:email].downcase)
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect "/user_home"
+      redirect "/user-home"
     else
       redirect "/failure"
     end
   end
 
   get '/user/new' do
-    redirect '/user_home' if logged_in?
+    redirect '/user-home' if logged_in?
     erb :"/signup"
   end
   post '/user' do
@@ -36,10 +36,10 @@ class ApplicationController < Sinatra::Base
     user = User.new(:name => params[:name], :email => params[:email].downcase, :password => params[:password])
     redirect "/failure" if !user.save
     session[:user_id] = user.id
-    redirect '/user_home'    
+    redirect '/user-home'    
   end
 
-  get '/user_home' do
+  get '/user-home' do
     redirect "/" if !logged_in?
     @user = current_user
     @buckets = Bucket.all.find_all { |bucket| bucket.user_id == current_user.id}
