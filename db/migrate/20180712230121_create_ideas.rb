@@ -5,7 +5,7 @@ class CreateIdeas < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.string :url
-      t.string :image
+      t.string :image_url
     end
   end
   

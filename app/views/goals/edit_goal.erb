@@ -15,7 +15,20 @@
             <textarea id="description" class="description-input" name="goal[description]" rows="5"><%=@goal.description%></textarea>
         </div>
     </div>
-    
+
+    <div class="form-group row">
+        <label for="url" class="col-sm-6 col-form-label">URL for additional information:</label>
+        <div class="col-sm-6">
+            <input type="url" class="form-control" name="goal[url]" value="<%=@goal.url%>">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="image_url" class="col-sm-6 col-form-label">URL for image:</label>
+        <div class="col-sm-6">
+            <input type="url" class="form-control" name="goal[image_url]" value="<%=@goal.image_url%>" >
+        </div>
+    </div>    
     <div class="row">
         <div class="col-sm-3 offset-sm-3 text-center">
             <button class="btn btn-dark" type="submit" id="submit" value="submit">

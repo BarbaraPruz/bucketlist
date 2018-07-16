@@ -119,3 +119,11 @@ border-radius: 10px;
 .bucket-goals h4, .bucket-goals a, .bucket-goals form {
   display: inline;
 }
+
+/*
+ * images (for goals and ideas)
+ */
+.goal-img, idea_img {
+  width: 150px;
+  height: 150px;
+}

@@ -33,7 +33,10 @@ ActiveRecord::Schema.define(version: 20180712231702) do
   create_table "goals", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
+    t.boolean  "completed"
     t.integer  "bucket_id"
+    t.string   "url"
+    t.string   "image_url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -42,7 +45,7 @@ ActiveRecord::Schema.define(version: 20180712231702) do
     t.string "name"
     t.text   "description"
     t.string "url"
-    t.string "image"
+    t.string "image_url"
   end
 
   create_table "users", force: :cascade do |t|

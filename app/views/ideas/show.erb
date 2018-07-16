@@ -9,8 +9,8 @@
             <% if !idea.url.nil? %>
                 <h5><a href="<%=idea.url%>" target=_blank><%=idea.url%></a></h5>
             <% end %>
-            <% if !idea.image.nil? %>
-                <img src="<%=idea.image%>" alt="<%=idea.name%>" class="img-thumbnail">
+            <% if !idea.image_url.nil? %>
+                <img src="<%=idea.image_url%>" alt="<%=idea.name%>" class="idea-img">
             <% end %>
         </li>
     <% end %>

@@ -29,12 +29,18 @@
                         <% bucket.goals.each do |goal| %>
                             <li class="clear-fix">
                                 <h4><%=goal.title%></h4>
+                                <% if !goal.image_url.nil? %>
+                                    <img src="<%=goal.image_url%>" alt="<%=goal.title%>" class="goal-img">
+                                <% end %>
                                 <a class="btn btn-sm btn-secondary" href="/goals/<%=goal.id%>/edit">Edit</a>
                                 <form method="post" action="/goals/<%=goal.id%>/delete">
                                     <input id="hidden" type="hidden" name="_method" value="delete">
                                     <input class="btn btn-secondary btn-sm" type="submit"  value="Delete">
                                 </form>
                                 <p><%=goal.description%></p>
+                                <% if !goal.url.nil? %>
+                                    <a href="<%=goal.url%>" target=_blank><%=goal.url%></a></h5>
+                                <% end %>
                             </li>
                         <% end %>
                     </ul>
