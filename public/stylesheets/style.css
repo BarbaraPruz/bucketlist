@@ -116,3 +116,6 @@ border-radius: 10px;
   padding: 20px;
   text-align: left;
 }
+.bucket-goals h4, .bucket-goals a, .bucket-goals form {
+  display: inline;
+}

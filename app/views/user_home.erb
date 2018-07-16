@@ -14,30 +14,32 @@
             <div class="bucket-control">
                 <div class="alignedsection">
                     <p class="alignleft"><em><%=bucket.description%></em></p>   
-                    <a class="btn btn-secondary alignright" href="/buckets/<%=bucket.id%>/edit">Edit<i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    <a class="btn btn-secondary alignright" href="/buckets/<%=bucket.id%>/edit">Edit<i class="fas fa-edit"></i></a>
                     <form class="alignright" method="post" action="/buckets/<%=bucket.id%>/delete">
                         <input id="hidden" type="hidden" name="_method" value="delete">
-                        <button class="btn btn-secondary" type="submit">Delete Bucket<i class="fa fa-trash-o"></i></button>
+                        <button class="btn btn-secondary" type="submit">Delete Bucket<i class="fas fa-trash-alt"></i></button>
                     </form>
                 </div>
             </div> 
-            <div class="bucket-goals clear-fix">        
-                <h4 class="clear-fix alignleft">Goals</h4>
-                <a class="btn alignright" href="/goals/new/<%=bucket.id%>">Add Goal</a>
-                <ul class="list-unstyled clear-fix">
-                    <% bucket.goals.each do |goal| %>
-                        <li class="clear-fix">
-                            <h4><%=goal.title%></h4>
-                            <p><%=goal.description%></p>
-                            <a class="btn" href="/goals/<%=goal.id%>/edit">Edit</a>
-                            <form method="post" action="/goals/<%=goal.id%>/delete">
-                                <input id="hidden" type="hidden" name="_method" value="delete">
-                                <input class="btn btn-secondary" type="submit"  value="Delete">
-                            </form>
-                        </li>
-                    <% end %>
-                </ul>
-            </div> <!-- end of bucket goals -->
+            <div class="clear-fix">        
+                <h5 class="alignleft clear-fix">Goals</h5>
+                <a class="btn btn-secondary btn-sm alignright" href="/goals/new/<%=bucket.id%>"><i class="fas fa-plus"></i>Add Goal</a>
+                <div class="bucket-goals">
+                    <ul class="list-unstyled clear-fix">
+                        <% bucket.goals.each do |goal| %>
+                            <li class="clear-fix">
+                                <h4><%=goal.title%></h4>
+                                <a class="btn btn-sm btn-secondary" href="/goals/<%=goal.id%>/edit">Edit</a>
+                                <form method="post" action="/goals/<%=goal.id%>/delete">
+                                    <input id="hidden" type="hidden" name="_method" value="delete">
+                                    <input class="btn btn-secondary btn-sm" type="submit"  value="Delete">
+                                </form>
+                                <p><%=goal.description%></p>
+                            </li>
+                        <% end %>
+                    </ul>
+                </div> <!-- end of bucket goals -->
+            </div> <!-- end of container for all goals -->
         </div> <!-- end of bucket contents-->
     <% end %>
 </div> <!-- end user buckets -->
