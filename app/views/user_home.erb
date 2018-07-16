@@ -6,47 +6,48 @@
 <div class="user-buckets clear-fix">
 
     <% @buckets.each do |bucket| %>
-        <button type="button" class="btn bucket-btn clear-fix" data-toggle="collapse" data-target="#bucket<%=bucket.id%>">
-            <%=bucket.name%><img src="/images/bucket-24.png">
-        </button>
-    
-        <div id="bucket<%=bucket.id%>" class="bucket-contents collapse">
-            <div class="bucket-control">
-                <div class="alignedsection">
-                    <p class="alignleft"><em><%=bucket.description%></em></p>   
-                    <a class="btn btn-secondary alignright" href="/buckets/<%=bucket.id%>/edit">Edit<i class="fas fa-edit"></i></a>
-                    <form class="alignright" method="post" action="/buckets/<%=bucket.id%>/delete">
-                        <input id="hidden" type="hidden" name="_method" value="delete">
-                        <button class="btn btn-secondary" type="submit">Delete Bucket<i class="fas fa-trash-alt"></i></button>
-                    </form>
-                </div>
-            </div> 
-            <div class="clear-fix">        
-                <h5 class="alignleft clear-fix">Goals</h5>
-                <a class="btn btn-secondary btn-sm alignright" href="/goals/new/<%=bucket.id%>"><i class="fas fa-plus"></i>Add Goal</a>
-                <div class="bucket-goals">
-                    <ul class="list-unstyled clear-fix">
-                        <% bucket.goals.each do |goal| %>
-                            <li class="clear-fix">
-                                <h4><%=goal.title%></h4>
-                                <% if goal.image_url.present? %>
-                                    <img src="<%=goal.image_url%>" alt="<%=goal.title%>" class="goal-img">
-                                <% end %>
-                                <a class="btn btn-sm btn-secondary" href="/goals/<%=goal.id%>/edit">Edit</a>
-                                <form method="post" action="/goals/<%=goal.id%>/delete">
-                                    <input id="hidden" type="hidden" name="_method" value="delete">
-                                    <input class="btn btn-secondary btn-sm" type="submit"  value="Delete">
-                                </form>
-                                <p><%=goal.description%></p>
-                                <% if !goal.url.nil? %>
-                                    <a href="<%=goal.url%>" target=_blank><%=goal.url%></a></h5>
-                                <% end %>
-                            </li>
+        <div class="bucket-contents">
+            <div class="alignedsection">
+                <h4 class="alignleft clear-fix"><img src="/images/bucket-24.png"><%=bucket.name%></h4>   
+                <a class="btn btn-secondary btn-sm alignright" href="/buckets/<%=bucket.id%>/edit">Edit<i class="fas fa-edit"></i></a>
+                <form class="alignright" method="post" action="/buckets/<%=bucket.id%>/delete">
+                    <input id="hidden" type="hidden" name="_method" value="delete">
+                    <button class="btn btn-sm btn-secondary" type="submit">Delete Bucket<i class="fas fa-trash-alt"></i></button>
+                </form>
+            </div>
+            <p class="clear-fix"><em><%=bucket.description%></em></p>   
+
+            <div class="alignedsection">
+                <button type="button" class="btn goals-btn clear-fix" data-toggle="collapse" data-target="#bucket<%=bucket.id%>">
+                    Goals
+                </button>
+                <a class="btn btn-secondary btn-sm" href="/goals/new/<%=bucket.id%>"><i class="fas fa-plus"></i>Add Goal</a>
+            </div>
+            <div id="bucket<%=bucket.id%>" class="bucket-goals collapse">
+                <ul class="list-unstyled clear-fix">
+                <% bucket.goals.each do |goal| %>
+                    <li class="clear-fix">
+                        <h4><%=goal.title%></h4>
+                        <a class="btn btn-sm btn-secondary" href="/goals/<%=goal.id%>/edit">Edit</a>
+                        <form method="post" action="/goals/<%=goal.id%>/delete">
+                            <input id="hidden" type="hidden" name="_method" value="delete">
+                            <input class="btn btn-secondary btn-sm" type="submit"  value="Delete">
+                        </form>
+                        <div class="alignedsection">
+                            <% if goal.image_url.present? %>
+                                <img src="<%=goal.image_url%>" alt="<%=goal.title%>" class="goal-img">
+                            <% end %>
+                            <p style="display:inline"><%=goal.description%></p>
+                        </div>
+                        <% if !goal.url.nil? %>
+                            <a href="<%=goal.url%>" target=_blank><%=goal.url%></a></h5>
                         <% end %>
-                    </ul>
-                </div> <!-- end of bucket goals -->
-            </div> <!-- end of container for all goals -->
-        </div> <!-- end of bucket contents-->
-    <% end %>
+                    </li>
+                <% end %>
+                </ul>
+            </div> <!-- bucket-goals -->
+
+        </div> <!-- bucket-contents -->
+   <% end %>
 </div> <!-- end user buckets -->
 

@@ -1,16 +1,16 @@
 <ul class="list-unstyled">
     <% @ideas.each do |idea| %>
         <li class="clear-fix">
-            <div class="alignedsection">
-                <h4 class="alignleft"><%=idea.name%></h4>
-                <a class="btn btn-secondary alignright" href="/ideas/<%=idea.id%>/newgoal">Create Goal</a>
+            <h4 class="alignleft"><%=idea.name%></h4>
+            <a class="btn btn-secondary" href="/ideas/<%=idea.id%>/newgoal">Create Goal</a>
+            <div class="alignedsection clear-fix">
+                <% if !idea.image_url.nil? %>
+                    <img src="<%=idea.image_url%>" alt="<%=idea.name%>" class="idea-img">
+                <% end %>
+                <p class="clear-fix"><em><%=idea.description%></em></p>
             </div>
-            <p class="clear-fix"><em><%=idea.description%></em></p>
             <% if !idea.url.nil? %>
                 <h5><a href="<%=idea.url%>" target=_blank><%=idea.url%></a></h5>
-            <% end %>
-            <% if !idea.image_url.nil? %>
-                <img src="<%=idea.image_url%>" alt="<%=idea.name%>" class="idea-img">
             <% end %>
         </li>
     <% end %>
