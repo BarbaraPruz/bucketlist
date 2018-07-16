@@ -3,13 +3,12 @@ require 'pry'
 
 class GoalController < ApplicationController
   
-    get '/goals/new/:bucket_id' do
+    get '/buckets/:bucket_id/goals/new' do
         redirect '/failure' if !logged_in?
         @bucket = Bucket.find(params[:bucket_id])
         redirect "/user-home" if @bucket.user_id != current_user.id
         erb :"/goals/create_goal"
     end
-    # QUESTION: note that the post route doesn't line up with the get route for the form!
     post '/goals' do
         redirect '/failure' if !logged_in?
         bucket = Bucket.find(params[:bucket_id])
