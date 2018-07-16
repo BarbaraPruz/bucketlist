@@ -34,6 +34,9 @@ class GoalController < ApplicationController
         bucket = Bucket.find(goal.bucket_id)
         redirect 'failure' if bucket.user_id != current_user.id
         goal.update(params[:goal])
+        if !params[:goal].has_key?(:completed) 
+            goal.update(:completed => false)
+        end
         goal.save
         redirect '/user-home'
     end
