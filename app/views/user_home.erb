@@ -29,7 +29,7 @@
                         <% bucket.goals.each do |goal| %>
                             <li class="clear-fix">
                                 <h4><%=goal.title%></h4>
-                                <% if !goal.image_url.nil? %>
+                                <% if goal.image_url.present? %>
                                     <img src="<%=goal.image_url%>" alt="<%=goal.title%>" class="goal-img">
                                 <% end %>
                                 <a class="btn btn-sm btn-secondary" href="/goals/<%=goal.id%>/edit">Edit</a>

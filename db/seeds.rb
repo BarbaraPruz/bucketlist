@@ -3,7 +3,7 @@ b1 = Bucket.create(:name => "Lifetime", :description => "What I want to do in my
 b2 = Bucket.create(:name => "Family", :description => "What I want to do with my family")
 g1 = Goal.create(:title => "Show Business", :description => "Be in a show at Ricky's club", :completed => false)
 g2 = Goal.create(:title => "Birthday Party", :description => "Have superman at Little Ricky's party", :completed => false)
-g3 = Goal.create(:title => "Country", :description => "Raise Little Ricky in the country", :completed => false)
+g3 = Goal.create(:title => "Country", :description => "Live in Conneticut", :completed => false)
 b1.goals << g1
 b2.goals << g2
 b2.goals << g3
