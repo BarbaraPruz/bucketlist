@@ -1,5 +1,4 @@
 require './config/environment'
-require 'pry'
 
 class IdeaController < ApplicationController
 
@@ -23,6 +22,7 @@ class IdeaController < ApplicationController
     get '/ideas/:id/newgoal' do
         redirect "/" if !logged_in?
         @buckets = Bucket.all.find_all { |bucket| bucket.user_id == current_user.id}
+        redirect "/failure" if @buckets.empty?
         @idea = Idea.find(params[:id])
         erb :"/ideas/create_goal_from_idea"      
     end

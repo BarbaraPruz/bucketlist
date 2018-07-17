@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    redirect '/user-home' if logged_in?
+    redirect '/buckets' if logged_in?
     erb :index
   end
 
@@ -18,16 +18,17 @@ class ApplicationController < Sinatra::Base
     user = User.find_by(:email => params[:email].downcase)
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect "/user-home"
+      redirect "/buckets"
     else
       redirect "/failure"
     end
   end
 
   get '/user/new' do
-    redirect '/user-home' if logged_in?
+    redirect '/buckets' if logged_in?
     erb :"/signup"
   end
+
   post '/user' do
     # fields required in erb but additional check for rspec (or if someone bypasses the form)
     if params[:name].length == 0 || params[:email].length == 0 || params[:password].length == 0
@@ -36,14 +37,7 @@ class ApplicationController < Sinatra::Base
     user = User.new(:name => params[:name], :email => params[:email].downcase, :password => params[:password])
     redirect "/failure" if !user.save
     session[:user_id] = user.id
-    redirect '/user-home'    
-  end
-
-  get '/user-home' do
-    redirect "/" if !logged_in?
-    @user = current_user
-    @buckets = Bucket.all.find_all { |bucket| bucket.user_id == current_user.id}
-    erb :"/user_home"
+    redirect '/buckets'    
   end
 
   get '/logout' do
@@ -56,6 +50,7 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do
+    
     def logged_in?
       !!session[:user_id]
     end
@@ -63,6 +58,7 @@ class ApplicationController < Sinatra::Base
     def current_user
       User.find(session[:user_id])
     end
+
   end
 
 end

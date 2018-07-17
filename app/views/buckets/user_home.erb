@@ -23,6 +23,7 @@
                 </button>
                 <a class="btn btn-secondary btn-sm" href="/buckets/<%=bucket.id%>/goals/new"><i class="fas fa-plus"></i>Add Goal</a>
             </div>
+
             <div id="bucket<%=bucket.id%>" class="bucket-goals collapse">
                 <ul class="list-unstyled clear-fix">
                 <% bucket.goals.each do |goal| %>
@@ -38,21 +39,23 @@
                             <input id="hidden" type="hidden" name="_method" value="delete">
                             <button class="btn btn-sm btn-secondary" type="submit"><i class="fas fa-trash-alt"></i></button>
                         </form>
+
                         <div class="alignedsection">
                             <% if goal.image_url.present? %>
                                 <img src="<%=goal.image_url%>" alt="<%=goal.title%>" class="goal-img alignleft">
                             <% end %>
                             <p><%=goal.description%></p>
                         </div>
-                        <% if !goal.url.nil? %>
+                        <% if !goal.url.present? %>
                             <a href="<%=goal.url%>" target=_blank><%=goal.url%></a>
                         <% end %>
+
                         <p class="clear-fix"></p> <!-- kluge to extend background behind image. To Do: fix -->           
                     </li>
                 <% end %>
                 </ul>
-            </div> <!-- bucket-goals -->
 
+            </div> <!-- bucket-goals -->
         </div> <!-- bucket-contents -->
    <% end %>
 </div> <!-- end user buckets -->

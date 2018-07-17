@@ -5,37 +5,38 @@
     <div class="form-group row">
         <label for="title" class="col-sm-3 col-form-label">Title:</label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" name="goal[title]" value="<%=@goal.title%>" required>
+            <input type="text" class="form-control" id="titile" name="goal[title]" value="<%=@goal.title%>" required>
         </div>
     </div>
 
     <div class="form-group row">
         <label for="completed" class="col-sm-3 col-form-label">Completed?</label>
         <div class="col-sm-9">
-            <input type="checkbox" name="goal[completed]" value="true" <%='checked' if @goal.completed %>></input>
+            <input type="checkbox" id="completed" name="goal[completed]" value="true" <%='checked' if @goal.completed %>></input>
         </div>
     </div>
     
     <div class="form-group row">
         <label for="Description" class="col-sm-3 col-form-label">Description:</label>
         <div class="col-sm-9">
-            <textarea id="description" class="description-input" name="goal[description]" rows="5"><%=@goal.description%></textarea>
+            <textarea id="description" class="description-input" id="description" name="goal[description]" rows="5"><%=@goal.description%></textarea>
         </div>
     </div>
 
     <div class="form-group row">
         <label for="url" class="col-sm-5 col-form-label">URL for additional information:</label>
         <div class="col-sm-7">
-            <input type="url" class="form-control" name="goal[url]" value="<%=@goal.url%>">
+            <input type="url" class="form-control" id="url" name="goal[url]" value="<%=@goal.url%>">
         </div>
     </div>
 
     <div class="form-group row">
         <label for="image_url" class="col-sm-5 col-form-label">URL for image:</label>
         <div class="col-sm-7">
-            <input type="url" class="form-control" name="goal[image_url]" value="<%=@goal.image_url%>" >
+            <input type="url" class="form-control" id="image_url" name="goal[image_url]" value="<%=@goal.image_url%>" >
         </div>
-    </div>    
+    </div>
+
     <div class="row">
         <div class="col-sm-3 offset-sm-3 text-center">
             <button class="btn btn-dark" type="submit" id="submit" value="submit">
@@ -43,7 +44,7 @@
             </button>
         </div>
         <div class="col-sm-3 text-center">        
-            <a class="btn btn-secondary" href="/user-home">Cancel</a>
+            <a class="btn btn-secondary" href="/buckets">Cancel</a>
         </div>            
     </div>
 
