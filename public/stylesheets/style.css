@@ -109,21 +109,17 @@ border-radius: 10px;
 
 .bucket-contents {
   margin: 20px;
-  padding: 10px;
+  padding: 10px; 
   background: #e4eae3;
-}
-.bucket-control {
-  background: #e4eae3;
-  padding: 10px;
-}
-.bucket-control button {
-  margin-right: 10px;
 }
 .bucket-goals {
   background: #e4eae3;
   margin-top: 5px;
-  padding: 20px;
+  padding: 20px 20px 0px 20px;
   text-align: left;
+}
+.bucket-goals li {
+  margin-bottom: 2em;
 }
 .bucket-goals h4, .bucket-goals a, .bucket-goals form {
   display: inline;
@@ -135,6 +131,7 @@ border-radius: 10px;
 .goal-img, idea_img {
   width: 150px;
   height: 150px;
+  margin: 5px;
 }
 
 /*

@@ -13,7 +13,7 @@ class GoalController < ApplicationController
         redirect '/failure' if !logged_in?
         bucket = Bucket.find(params[:bucket_id])
         redirect "/user-home" if bucket.user_id != current_user.id
-        goal = Goal.new(:title=>params[:title], :description=>params[:description])
+        goal = Goal.new(params[:goal])
         bucket.goals << goal
         redirect "/failure" if !bucket.save
         redirect "user-home"
