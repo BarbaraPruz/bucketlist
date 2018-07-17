@@ -11,3 +11,10 @@ Once logged in, users can
 - browse ideas (browse all or select category(s)).
 
 
+Running bucketlist
+------------------
+Test user logins:
+    joe@domain.com  password: test
+    martha@domain.com password: test
+or sign up to create a different id.
+

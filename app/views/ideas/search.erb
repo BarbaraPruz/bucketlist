@@ -2,11 +2,11 @@
     <h4>Search Ideas</h4>
     <p>(find ideas with one or more of the selected categories)</p>
     <div class="text-center">
-        <%@categories.each do |category|%>
+        <% @categories.each_with_index do |category| %>
             <input type="checkbox" name="category_ids[]" id="<%= category.id%>" value="<%=category.id%>">
                 <%=category.name%>
-            </input>
-        <%end%>
+            </input><br>
+        <% end %>
         <button class="btn btn-dark" type="submit"form="search_form" value="Submit">Search</button>
     </div>
 </form>
