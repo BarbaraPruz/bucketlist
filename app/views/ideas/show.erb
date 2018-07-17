@@ -1,20 +1,21 @@
-<div class="idea-list">
+<div class="idea-list clear-fix">
     <ul class="list-unstyled">
         <% @ideas.each do |idea| %>
             <li class="idea-contents clear-fix">
                 <div class="alignedsection">
                     <h4 class="alignleft"><%=idea.name%></h4>
-                    <a class="btn btn-secondary alignright" href="/ideas/<%=idea.id%>/newgoal">Create Goal</a>
+                    <a class="btn btn-secondary btn-sm alignright" href="/ideas/<%=idea.id%>/newgoal">Create Goal</a>
                 </div>
                 <div class="alignedsection clear-fix">
-                    <% if !idea.image_url.nil? %>
-                        <img src="<%=idea.image_url%>" alt="<%=idea.name%>" class="idea-img">
+                    <% if idea.image_url.present? %>
+                        <img src="<%=idea.image_url%>" alt="<%=idea.name%>" class="goal-img alignleft">
                     <% end %>
-                    <p class="clear-fix"><em><%=idea.description%></em></p>
+                    <p><%=idea.description%></p>
                 </div>
                 <% if !idea.url.nil? %>
-                    <h5><a href="<%=idea.url%>" target=_blank><%=idea.url%></a></h5>
-                <% end %>
+                    <a href="<%=idea.url%>" target=_blank><%=idea.url%></a></h5>
+                <% end %> 
+                <p class="clear-fix"></p> <!-- kluge to extend background behind image. To Do: fix -->           
             </li>
         <% end %>
     </ul>

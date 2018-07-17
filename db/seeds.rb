@@ -24,7 +24,9 @@ cultural =  Category.create(:name => "Cultural")
 activity = Category.create(:name => "Activities")
 
 grand_canyon = Idea.create(:name => "Grand Canyon",
-    :url=>"https://www.grandcanyon.org/", :image_url=>"https://www.nps.gov/npgallery/GetAsset/F73A9730-155D-451F-67D1A31A2B667B8A/Thumb/XLarge?")
+    :description=>"The South Rim is open all year. The North Rim closed in winter (starting in October).",
+    :url=>"https://www.grandcanyon.org/", 
+    :image_url=>"https://www.nps.gov/npgallery/GetAsset/F73A9730-155D-451F-67D1A31A2B667B8A/Thumb/XLarge?")
 northern_lights = Idea.create(:name => "Northern Lights")
 super_bowl = Idea.create(:name => "Super Bowl")
 mardi_gras = Idea.create(:name => "Mardi Gras",

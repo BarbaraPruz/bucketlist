@@ -42,7 +42,6 @@ footer {
 .clear-fix {
   clear: both;
 }
-
 .alignedsection a, .alignedsection button, .alignedsection form {
   margin-left: 10px;
 }
@@ -90,15 +89,8 @@ border-radius: 10px;
   width: 90%;
   margin: auto;
 }
-.bucket-btn {
-  border: 1px solid #910a91;
-  width: 100%;
-  margin-top: 10px;
-  font-weight: bold;
-}
 .goals-btn {
   border: 1px solid #910a91;
-  text-decoration: underline;
   font-weight: bold;
   text-align: left;
 }
@@ -119,7 +111,7 @@ border-radius: 10px;
   text-align: left;
 }
 .bucket-goals li {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 .bucket-goals h4, .bucket-goals a, .bucket-goals form {
   display: inline;

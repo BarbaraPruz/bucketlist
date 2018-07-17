@@ -45,8 +45,9 @@
                             <p><%=goal.description%></p>
                         </div>
                         <% if !goal.url.nil? %>
-                            <a href="<%=goal.url%>" target=_blank><%=goal.url%></a></h5>
+                            <a href="<%=goal.url%>" target=_blank><%=goal.url%></a>
                         <% end %>
+                        <p class="clear-fix"></p> <!-- kluge to extend background behind image. To Do: fix -->           
                     </li>
                 <% end %>
                 </ul>
