@@ -21,8 +21,10 @@ class IdeaController < ApplicationController
     end  
 
     get '/ideas/:id/newgoal' do
-        # To Do
-        redirect :"/user-home" #temporary
+        redirect "/" if !logged_in?
+        @buckets = Bucket.all.find_all { |bucket| bucket.user_id == current_user.id}
+        @idea = Idea.find(params[:id])
+        erb :"/ideas/create_goal_from_idea"      
     end
 
 end

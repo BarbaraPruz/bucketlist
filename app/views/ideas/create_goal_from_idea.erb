@@ -1,0 +1,51 @@
+<form class="bucket-form" action="/goals" method="POST" >
+    <h4>Create Goal from Idea</h4>
+
+    <div class="form-group row">
+        <label for="bucket_chooser" class="col-sm-3 col-form-label">Bucket:</label>
+        <select id="bucket_chooser" name="bucket_id">
+            <% @buckets.each do |bucket| %>
+                <option value="<%=bucket.id%>"><%=bucket.name%></option>
+            <% end %>
+        </select>
+    </div>
+
+    <div class="form-group row">
+        <label for="title" class="col-sm-3 col-form-label">Title:</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="title" name="title" value="<%=@idea.name%>" required>
+        </div>
+    </div>
+   
+    <div class="form-group row">
+        <label for="description" class="col-sm-3 col-form-label">Description:</label>
+        <div class="col-sm-9">
+            <textarea id="description" class="description-input" name="description" rows="5"><%=@idea.description%></textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="url" class="col-sm-5 col-form-label">URL for additional information:</label>
+        <div class="col-sm-7">
+            <input type="url" id="url" class="form-control" name="url" value="<%=@idea.url%>">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="image_url" class="col-sm-5 col-form-label">URL for image:</label>
+        <div class="col-sm-7">
+            <input type="url" id="image_url" class="form-control" name="image_url" value="<%=@idea.image_url%>" >
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-sm-3 offset-sm-3 text-center">
+            <button class="btn btn-dark" type="submit" id="submit" value="submit">
+                Create Goal<img src="/images/bucket-24.png">
+            </button>
+        </div>
+        <div class="col-sm-3 text-center">        
+            <a class="btn btn-secondary" href="/ideas">Cancel</a>
+        </div>            
+    </div>
+
+</form>

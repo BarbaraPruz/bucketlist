@@ -136,3 +136,13 @@ border-radius: 10px;
   width: 150px;
   height: 150px;
 }
+
+/*
+ * Ideas page
+ */
+.idea-contents {
+  background: #e4eae3;
+  margin-top: 5px;
+  padding: 20px;
+  text-align: left; 
+}
