@@ -5,7 +5,8 @@ class BucketController < ApplicationController
     get '/buckets' do
         redirect "/" if !logged_in?
         @user = current_user
-        @buckets = Bucket.all.find_all { |bucket| bucket.user_id == current_user.id}
+       # @buckets = Bucket.all.find_all { |bucket| bucket.user_id == current_user.id}
+        @buckets=@user.buckets
         erb :"/buckets/user_home"
     end
 
@@ -18,9 +19,9 @@ class BucketController < ApplicationController
         redirect "/login" if !logged_in?
         redirect '/buckets/new' if params[:name].length == 0
         user = User.find(session[:user_id])
-        bucket = Bucket.create(:name => params[:name], :description => params[:description])
-        user.buckets << bucket
-        user.save
+        bucket = user.buckets.create(:name => params[:name], :description => params[:description])
+        #user.buckets << bucket
+        # user.save
         redirect "/buckets"       
     end
 
