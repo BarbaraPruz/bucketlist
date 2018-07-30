@@ -24,12 +24,12 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  get '/user/new' do
+  get '/users/new' do
     redirect '/buckets' if logged_in?
     erb :"/signup"
   end
 
-  post '/user' do
+  post '/users' do
     # fields required in erb but additional check for rspec (or if someone bypasses the form)
     if params[:name].length == 0 || params[:email].length == 0 || params[:password].length == 0
       redirect '/signup'
